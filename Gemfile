@@ -40,3 +40,4 @@ gem 'spring',        group: :development
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'#, github: 'plataformatec/devise'
+gem 'authlogic'

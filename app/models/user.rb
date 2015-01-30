@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_authentic
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, 
@@ -8,7 +9,7 @@ has_many :committees
 
 validates :name, length: { minimum: 2}
 validates :surname, length: { minimum: 2 }
-validates :password, length: { in: 6..20 }
+
 #validates :type, numeralicity: {only_integer: true}
 validates :city, length: { minimum: 3}
 end
