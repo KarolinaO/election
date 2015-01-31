@@ -1,14 +1,19 @@
 class CreateUsers < ActiveRecord::Migration
   def change
-    create_table :user do |t|
-    t.integer :name
-    t.integer :surname
-    t.integer :password
-    t.integer :type
-    t.string :city
+    create_table :users do |t|
+    t.string    :name
+    t.string    :surname
+    t.string    :login
+    t.string    :crypted_password,    :null => false
+    t.string    :password_salt,       :null => false
+    t.string    :persistence_token,   :null => false
+    t.boolean   :admin, :null => false, :default => 0
+    t.integer   :type
+    t.string    :city
     t.references :committee
     t.references :constituency
-      t.timestamps
+
+    t.timestamps
     end
   end
 end

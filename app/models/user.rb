@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, 
-         :recoverable, :rememberable, :trackable, :validatable
-#has_and_belongs_to :constituencies
 has_many :committees
+
+acts_as_authentic do |config|
+  config.validate_login_field = false
+  config.validate_password_field = false
+  config.crypted_password_field = :crypted_password
+  config.require_password_confirmation = true
+end
 
 validates :name, length: { minimum: 2}
 validates :surname, length: { minimum: 2 }
