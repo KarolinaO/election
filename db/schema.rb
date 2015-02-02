@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131115907) do
+ActiveRecord::Schema.define(version: 20150202205701) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -82,6 +82,11 @@ ActiveRecord::Schema.define(version: 20150131115907) do
   create_table "provinces", force: true do |t|
     t.string   "province_name"
     t.integer  "seats"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statistics", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
