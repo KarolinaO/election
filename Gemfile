@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'#, github: 'plataformatec/devise'
 gem 'authlogic'
+gem "paperclip", "~> 4.2"
+gem 'cancancan', '~> 1.10'
