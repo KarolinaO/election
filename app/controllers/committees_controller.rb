@@ -1,8 +1,8 @@
 class CommitteesController < ApplicationController
   before_action :set_committee, only: [:show, :edit, :update, :destroy]
 
-  # GET /committees
-  # GET /committees.json
+  # GET /committee
+  # GET /committee.json
   def index
     @committees = Committee.all
   end
@@ -21,8 +21,8 @@ class CommitteesController < ApplicationController
   def edit
   end
 
-  # POST /committees
-  # POST /committees.json
+  # POST /committee
+  # POST /committee.json
   def create
     @committee = Committee.new(committee_params)
 
@@ -37,8 +37,8 @@ class CommitteesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /committees/1
-  # PATCH/PUT /committees/1.json
+  # PATCH/PUT /committee/1
+  # PATCH/PUT /committee/1.json
   def update
     respond_to do |format|
       if @committee.update(committee_params)
@@ -51,12 +51,12 @@ class CommitteesController < ApplicationController
     end
   end
 
-  # DELETE /committees/1
-  # DELETE /committees/1.json
+  # DELETE /committee/1
+  # DELETE /committee/1.json
   def destroy
     @committee.destroy
     respond_to do |format|
-      format.html { redirect_to committees_url, notice: 'Committee was successfully destroyed.' }
+      format.html { redirect_to committee_url, notice: 'Committee was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class CommitteesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def committee_params
-      params[:committee]
+      params.require(:committee).permit(:name, :avatar)
     end
 end

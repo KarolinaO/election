@@ -1,4 +1,4 @@
-<%= form_for(@committee) do |f| %>
+<%= form_for(@committee, :html => { :multipart => true }) do |f| %>
   <% if @committee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@committee.errors.count, "error") %> prohibited this committee from being saved:</h2>
@@ -11,7 +11,16 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<p>
+    <%= f.file_field :avatar %>
+</p>
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+
+<p class="actions">
+  <%= f.submit %>
+</p>
+
 <% end %>

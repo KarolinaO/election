@@ -3,7 +3,3 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', committees_path %>
-
-<%= form_for @committee, :url => committee_path, :html => { :multipart => true } do |form| %>
-    <%= form.file_field :avatar %>
-<% end %>

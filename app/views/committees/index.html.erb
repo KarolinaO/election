@@ -10,6 +10,8 @@
   <tbody>
     <% @committees.each do |committee| %>
       <tr>
+        <td><%=committee.id %></td>
+        <td><%=committee.name %></td>
         <td><%= link_to 'Show', committee %></td>
         <td><%= link_to 'Edit', edit_committee_path(committee) %></td>
         <td><%= link_to 'Destroy', committee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -21,3 +23,4 @@
 <br>
 
 <%= link_to 'New Committee', new_committee_path %>
+
