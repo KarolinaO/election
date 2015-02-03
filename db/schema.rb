@@ -72,7 +72,10 @@ ActiveRecord::Schema.define(version: 20150203130852) do
 
   create_table "constituencies", force: true do |t|
     t.integer  "number"
+    t.string   "name"
     t.integer  "voters"
+    t.integer  "good_vote"
+    t.integer  "bad_vote"
     t.integer  "canceled_votes_1"
     t.integer  "canceled_votes_2"
     t.integer  "canceled_votes_3"

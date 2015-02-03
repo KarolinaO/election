@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 has_many :committees
+has_one :constituency
+has_one :province
 
 acts_as_authentic do |config|
   config.validate_login_field = false
