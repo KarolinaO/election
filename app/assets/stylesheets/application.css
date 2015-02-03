@@ -10,6 +10,22 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ 
  *= require_self
  */
+
+
+.navbar-default .navbar-nav>li>a{
+	display:inline-block;
+	padding-left:5px;
+}
+
+.container{
+	background:rgba(255,255,255,0.75);
+}
+
+body{
+	background:url(http://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg);
+	background-size:100% 100%;
+	background-attachment:fixed;
+}
