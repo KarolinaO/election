@@ -14,6 +14,10 @@
       <%= f.label :status %><br>
       <%= f.select :status, options_for_select(@vote.vote_status) %>
     </div>
+    <p>
+      <%= f.label :quantity%><br />
+      <%= f.text_field :quantity%>
+    </p>
   <div class="actions">
     <%= f.submit %>
   </div>

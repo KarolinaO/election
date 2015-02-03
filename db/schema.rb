@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20150203130852) do
 
   create_table "votes", force: true do |t|
     t.string   "status"
+    t.integer  "quantity"
     t.integer  "committee_id"
     t.integer  "constituency_id"
     t.integer  "province_id"
