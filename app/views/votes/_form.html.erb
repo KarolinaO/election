@@ -12,13 +12,27 @@
   <% end %>
     <div class="field">
       <%= f.label :status %><br>
-      <%= f.select :status, options_for_select(@vote.vote_status) %>
+      <%= f.select :status, options_for_select(@vote.vote_status), :id => ("vote_status") %>
     </div>
-    <p>
+		<div class="field" id="status_reason" style="display:none;">
+			Tu bedzie reason!
+		</div>
+    <div class="field">
       <%= f.label :quantity%><br />
       <%= f.text_field :quantity%>
-    </p>
+		</div>
   <div class="actions">
     <%= f.submit %>
   </div>
     <%end%>
+		
+		<script>
+		$('#vote_status').change(function(){
+			//alert($('#vote_status').val());
+			if($('#vote_status').val()=="Anulowany"){
+				$("#status_reason").css('display', 'block');
+			} else {
+				$("#status_reason").css('display', 'none');
+			}
+		});
+		</script>

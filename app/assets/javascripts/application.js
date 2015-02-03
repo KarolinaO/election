@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+	
+	function check() {
+	    /*var dropdown = document.getElementById("OperationType");
+	    var current_value = dropdown.options[dropdown.selectedIndex].value;
+
+	    if (current_value == "OpNo") {
+	        document.getElementById("OperationNos").style.display = "block";
+	    }
+	    else {
+	        document.getElementById("OperationNos").style.display = "none";
+	    }*/
+			
+			
+	}
+	
+	$('#vote_status').change(function(){
+		alert('it works');
+	});

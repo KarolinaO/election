@@ -5,11 +5,10 @@ belongs_to :province
 has_one :canceled
 
 
-def vote_status
-  [
+  def vote_status
+    [
       ['Poprawny'],
       ['Anulowany']
-
-  ]
+    ]
   end
 end
