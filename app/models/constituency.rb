@@ -3,10 +3,20 @@ class Constituency < ActiveRecord::Base
   has_many :votes
   belongs_to :user
   has_one :user
-
+  before_validation :default_values
+  
   validates :number, numericality:  {only_integer:true}
   validates :voters, numericality:  {only_integer:true}
   validates :canceled_votes_1, numericality:  {only_integer:true}
   validates :canceled_votes_2, numericality:  {only_integer:true}
   validates :canceled_votes_3, numericality:  {only_integer:true}
+  
+  def default_values
+     self.voters ||= 0
+     self.good_vote ||= 0
+     self.bad_vote ||= 0
+     self.canceled_votes_1 ||= 0
+     self.canceled_votes_2 ||= 0
+     self.canceled_votes_3 ||= 0
+   end
 end
