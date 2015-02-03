@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20150203130852) do
   end
 
   create_table "provinces", force: true do |t|
-    t.string   "province_name"
+    t.string   "name"
     t.integer  "seats"
     t.datetime "created_at"
     t.datetime "updated_at"
