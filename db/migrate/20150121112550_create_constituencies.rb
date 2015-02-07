@@ -4,8 +4,8 @@ class CreateConstituencies < ActiveRecord::Migration
     t.integer :number
     t.string :name
     t.integer :voters
-    t.integer :good_vote
-    t.integer :bad_vote
+    t.integer :good_votes
+    t.integer :bad_votes
     t.integer :canceled_votes_1
     t.integer :canceled_votes_2
     t.integer :canceled_votes_3

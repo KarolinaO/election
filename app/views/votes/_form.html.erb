@@ -10,31 +10,20 @@
       </ul>
     </div>
   <% end %>
-    <div class="field">
-      <%= f.label :status %><br>
-      <%= f.select :status, options_for_select(@vote.vote_status), :id => ("vote_status") %>
-    </div>
-		<div class="field" id="status_reason" style="display:none;">
-          <%= f.label :status_reason %><br />
 
-			Tu bedzie reason!
-		</div>
-    <div class="field">
-      <%= f.label :quantity%><br />
-      <%= f.text_field :quantity%>
-		</div>
-  <div class="actions">
+    <p>
+      <%= f.label :canceled_votes_1  %><br />
+      <%= f.text_field :canceled_votes_1 %>
+    </p>
+    <p>
+      <%= f.label :canceled_votes_2  %><br />
+      <%= f.text_field :canceled_votes_2 %>
+    </p>
+    <p>
+      <%= f.label :canceled_votes_3  %><br />
+      <%= f.text_field :canceled_votes_3 %>
+    </p>
     <button type=“submit” class=“btn btn-success”>Create Vote</button>
   </div>
     <%end%>
-		
-		<script>
-		$('#vote_status').change(function(){
-			//alert($('#vote_status').val());
-			if($('#vote_status').val()=="Anulowany"){
-				$("#status_reason").css('display', 'block');
-			} else {
-				$("#status_reason").css('display', 'none');
-			}
-		});
-		</script>
+

@@ -67,8 +67,12 @@ class VotesController < ApplicationController
       @vote = Vote.find(params[:id])
     end
 
+  def canceled
+    
+  end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def vote_params
-      params.require(:vote).permit(:vote, :status)
+      params.require(:vote).permit(:vote, :constituency_id)
     end
 end

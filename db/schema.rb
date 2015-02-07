@@ -46,18 +46,6 @@ ActiveRecord::Schema.define(version: 20150207151543) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
-  create_table "canceled", force: true do |t|
-    t.text     "reason"
-    t.integer  "vote_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "canceleds", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "committees", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -78,8 +66,8 @@ ActiveRecord::Schema.define(version: 20150207151543) do
     t.integer  "number"
     t.string   "name"
     t.integer  "voters"
-    t.integer  "good_vote"
-    t.integer  "bad_vote"
+    t.integer  "good_votes"
+    t.integer  "bad_votes"
     t.integer  "canceled_votes_1"
     t.integer  "canceled_votes_2"
     t.integer  "canceled_votes_3"
@@ -123,11 +111,9 @@ ActiveRecord::Schema.define(version: 20150207151543) do
   end
 
   create_table "votes", force: true do |t|
-    t.string   "status"
     t.integer  "quantity"
     t.integer  "committee_id"
     t.integer  "constituency_id"
-    t.integer  "province_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

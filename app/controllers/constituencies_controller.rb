@@ -70,6 +70,6 @@ class ConstituenciesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def constituency_params
       params[:constituency]
-      params.require(:constituency).permit(:number, :name)
+      params.require(:constituency).permit(:number, :name, :province_id)
     end
 end
