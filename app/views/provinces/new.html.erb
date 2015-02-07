@@ -1,5 +1,16 @@
+<div class="row">
 <h1>New province</h1>
+	<div class="col-md-2">
+		<p><i class="fa fa-chevron-left"></i> <%= link_to 'Back', provinces_path %></p>
+		<i class="fa fa-plus big-icon"></i>
+	</div>
+	<div class="col-md-7">
+		<%= render 'form' %>
+	</div>
+	<div class="col-md-3">&nbsp;</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', provinces_path %>
+</div>
+
+
+
