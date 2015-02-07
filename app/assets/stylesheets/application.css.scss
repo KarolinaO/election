@@ -53,6 +53,10 @@ footer{
 .big-icon{
 	font-size:200px;
 }
+
+.fa-pencil-square-o.big-icon{
+	font-size:150px;
+}
 .btn-ali{
 	background: transparent;
 	border: 1px solid white;
@@ -60,6 +64,15 @@ footer{
 	
 	:hover{
 		color:white!important;
+	}
+}
+
+.icon-set{
+	display:inline-block;
+	margin-right:5px;
+	
+	.fa{
+		margin-right:2px;
 	}
 }
 

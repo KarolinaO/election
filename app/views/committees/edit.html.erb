@@ -1,6 +1,13 @@
+<div class="row">
 <h1>Editing committee</h1>
+	<div class="col-md-2">
+		<p><i class="fa fa-chevron-left"></i> <%= link_to 'Back', committees_path %> | <%= link_to 'Show', @committee %></p>
+		<i class="fa fa-pencil-square-o big-icon"></i>
+	</div>
+	<div class="col-md-7">
+		<%= render 'form' %>
+	</div>
+	<div class="col-md-3">&nbsp;</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @committee %> |
-<%= link_to 'Back', committees_path %>
+</div>

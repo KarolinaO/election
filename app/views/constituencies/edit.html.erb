@@ -1,6 +1,13 @@
+<div class="row">
 <h1>Editing constituency</h1>
+	<div class="col-md-2">
+		<p><i class="fa fa-chevron-left"></i> <%= link_to 'Back', constituencies_path %> | <%= link_to 'Show', @constituency %></p>
+		<i class="fa fa-pencil-square-o big-icon"></i>
+	</div>
+	<div class="col-md-7">
+		<%= render 'form' %>
+	</div>
+	<div class="col-md-3">&nbsp;</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @constituency %> |
-<%= link_to 'Back', constituencies_path %>
+</div>
