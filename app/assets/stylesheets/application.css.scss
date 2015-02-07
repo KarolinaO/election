@@ -61,9 +61,16 @@ footer{
 	background: transparent;
 	border: 1px solid white;
 	padding: 8px 14px!important;
-	
+	border-radius:4px;
 	:hover{
 		color:white!important;
+	}
+}
+
+a.btn-ali{
+	color:white!important;
+	:hover{
+		text-decoration:none!important;
 	}
 }
 
