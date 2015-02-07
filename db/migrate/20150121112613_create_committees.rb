@@ -2,7 +2,6 @@ class CreateCommittees < ActiveRecord::Migration
   def change
     create_table :committees do |t|
     t.string :name
-    t.references :province
     t.references :user
  
      t.timestamps

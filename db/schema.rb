@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20150207151543) do
 
   create_table "committees", force: true do |t|
     t.string   "name"
-    t.integer  "province_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

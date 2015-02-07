@@ -18,7 +18,7 @@
   <%= f.label :name %><br />
   <%= f.text_field :name %>
 </p>
-    <%= f.collection_select(:province_id, Province.all.order('created_at ASC'), :id, :name,{}, {:multiple => true}) %>
+    <%= f.collection_select :province_ids, Province.order(:name), :id, :name, {}, {multiple: true} %>
 
 
 <p class="actions">
