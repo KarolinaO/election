@@ -1,5 +1,5 @@
 class Committee < ActiveRecord::Base
- belongs_to :province
+ has_and_belongs_to_many :provinces
   has_many :votes
   belongs_to :user
 

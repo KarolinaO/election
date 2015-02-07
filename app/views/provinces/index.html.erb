@@ -10,6 +10,8 @@
   <tbody>
     <% @provinces.each do |province| %>
       <tr>
+        <td><%=province.id %></td>
+        <td><%=province.name %></td>
         <td><%= link_to 'Show', province %></td>
         <td><%= link_to 'Edit', edit_province_path(province) %></td>
         <td><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></td>
