@@ -18,6 +18,7 @@
   <%= f.label :name %><br />
   <%= f.text_field :name %>
 </p>
+    <%= f.collection_select(:province_id, Province.all, :id, :name) %>
 
 <p class="actions">
   <%= f.submit %>
