@@ -14,9 +14,9 @@ class Committee < ActiveRecord::Base
 
 
   def getCommitteesByProvinceId
-    Commitees.all.select { |committee| committee.province_id == 'province_id' }
+return    Commitees.all.select { |committee| committee.province_id == @province_id }
 
-return
+
   end
 
 end
