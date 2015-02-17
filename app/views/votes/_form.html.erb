@@ -30,7 +30,19 @@
         </div>
     <% end %>
 
-
+    <%= f.label :canceled_votes_1, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :canceled_votes_1, :class => 'form-control' %>
+    </div>
+    <%= f.label :canceled_votes_2, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :canceled_votes_2, :class => 'form-control' %>
+    </div>
+    <%= f.label :canceled_votes_3, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :canceled_votes_3, :class => 'form-control' %>
+    </div>
+    
       <div class="col-sm-offset-2 col-sm-10">
         <%= f.submit 'Utwórz', :class => 'btn btn-ali' %>
       </div>
