@@ -3,3 +3,53 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', votes_path %>
+<%= form_for @constituency, :html => {:class => 'form-horizontal'} do |f| %>
+    <% if @constituency.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@constituency.errors.count, "error") %> prohibited this constituency from being saved:</h2>
+
+          <ul>
+            <% @constituency.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    </div>
+    <% @commieties.each do |c| %>
+        <%= f.fields_for :votes do |v| %>
+            <%= f.hidden_field :committee_id, :value => c.id %>
+            <div class="field">
+              <%= v.label :quantity %><br>
+              <%= v.text_field :quantity %>
+            </div>
+
+            <div class="field">
+              <%= f.hidden_field :vote_id, :value => @constituency.id %>
+            </div>
+            <div class="field">
+              <%= f.hidden_field :good_votes, :value => "good" %>
+              <%= f.hidden_field :bad_votes, :value => "bad" %>
+
+            </div>
+        <% end %>
+    <% end %>
+    <%= f.label :canceled_votes_1, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :canceled_votes_1, :class => 'form-control' %>
+    </div>
+    <%= f.label :canceled_votes_2, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :canceled_votes_2, :class => 'form-control' %>
+    </div>
+    <%= f.label :canceled_votes_3, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :canceled_votes_3, :class => 'form-control' %>
+    </div>
+
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit 'Utwórz', :class => 'btn btn-ali' %>
+    </div>
+<% end %>

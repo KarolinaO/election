@@ -13,10 +13,9 @@ class Committee < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
-  def getCommitteesByProvinceId
-return    Commitees.all.select { |committee| committee.province_id == @province_id }
+  def getCommitteesByProvinceId(province_id)
+    Committee.joins(:provinces).where(province_id)
+  end
 
 
   end
-
-end
