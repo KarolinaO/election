@@ -19,6 +19,7 @@ class VotesController < ApplicationController
     @constituency = Constituency.find(@id)
     @province_id= @constituency.province_id
   # GET /votes/1/edit
+    end
   def edit
   end
 
