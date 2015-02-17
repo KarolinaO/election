@@ -1,29 +1,62 @@
-<%= form_for(@vote) do |f| %>
-  <% if @vote.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
+<%= form_for @constituency, :html => {:class => 'form-horizontal'} do |f| %>
+    <% if @constituency.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@constituency.errors.count, "error") %> prohibited this constituency from being saved:</h2>
 
-      <ul>
-      <% @vote.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @constituency.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :number, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :number, :class => 'form-control' %>
+      </div>
     </div>
-  <% end %>
+    <div class="form-group">
+      <%= f.label :name, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :voters, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :voters, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :province, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.collection_select :province_id, Province.all.order('name ASC'), :id, :name, {}, {:class => 'form-control'} %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit 'Utwórz', :class => 'btn btn-ali' %>
+      </div>
+    </div>
 
-    <p>
-      <%= f.label :canceled_votes_1  %><br />
-      <%= f.text_field :canceled_votes_1 %>
-    </p>
-    <p>
-      <%= f.label :canceled_votes_2  %><br />
-      <%= f.text_field :canceled_votes_2 %>
-    </p>
-    <p>
-      <%= f.label :canceled_votes_3  %><br />
-      <%= f.text_field :canceled_votes_3 %>
-    </p>
-    <button type=“submit” class=“btn btn-success”>Create Vote</button>
-  </div>
-    <%end%>
+    <%= f.fields_for :votes do |v| %>
+        <div class="field">
+          <%= v.label :quantity %><br>
+          <%= v.text_field :quantity %>
+        </div>
 
+        <div class="field">
+          <%= f.hidden_field :vote_id, :value => @constituency.id %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :good_votes, :value => "good" %>
+          <%= f.hidden_field :bad_votes, :value => "bad" %>
+
+        </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
