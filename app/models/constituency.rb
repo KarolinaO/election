@@ -13,8 +13,6 @@ class Constituency < ActiveRecord::Base
   
   def default_values
      self.voters ||= 0
-     self.good_vote ||= 0
-     self.bad_vote ||= 0
      self.canceled_votes_1 ||= 0
      self.canceled_votes_2 ||= 0
      self.canceled_votes_3 ||= 0

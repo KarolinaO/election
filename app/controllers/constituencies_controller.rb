@@ -1,7 +1,7 @@
 class ConstituenciesController < ApplicationController
   before_action :set_constituency, only: [:show, :edit, :update, :destroy]
 
-  # GET /constituencies
+    # GET /constituencies
   # GET /constituencies.json
   def index
     @constituencies = Constituency.all
