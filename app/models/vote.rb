@@ -12,7 +12,7 @@ has_one :canceled
     ]
 
     def getVotesByConstituencyId(constituency_id)
-      votes = Votes.where("constituency_id=?", constituency_id)
+      Votes.where("constituency_id=?", constituency_id)
 
     end
   end
