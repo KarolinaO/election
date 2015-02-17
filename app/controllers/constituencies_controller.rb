@@ -15,10 +15,12 @@ class ConstituenciesController < ApplicationController
   # GET /constituencies/new
   def new
     @constituency = Constituency.new
+    @constituency.votes.build
   end
 
   # GET /constituencies/1/edit
   def edit
+    @constituency.votes.build
   end
 
   # POST /constituencies
@@ -69,7 +71,6 @@ class ConstituenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def constituency_params
-      params[:constituency]
-      params.require(:constituency).permit(:number, :name, :province_id, votes_attributes: [:id, :quantity])
+      params.require(:constituency).permit(:number, :name, :province_id, :canceled_votes_1, :canceled_votes_2, :canceled_votes_3, votes_attributes: [:id, :quantity, :constituency_id, :committee_id])
     end
 end

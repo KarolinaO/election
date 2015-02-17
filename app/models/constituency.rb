@@ -4,6 +4,7 @@ class Constituency < ActiveRecord::Base
   belongs_to :user
   has_one :user
   before_validation :default_values
+  accepts_nested_attributes_for :votes
   
   validates :number, numericality:  {only_integer:true}
   validates :voters, numericality:  {only_integer:true}
