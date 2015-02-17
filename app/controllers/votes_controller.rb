@@ -27,10 +27,7 @@ class VotesController < ApplicationController
       @vote = Vote.find(params[:id])
     end
 
-  def getVotesByConstituencyId(constituency_id)
-    @votes = Votes.where(constituencyID = constituencyID)
 
-  end
 
 
     # Never trust parameters from the scary internet, only allow the white list through.

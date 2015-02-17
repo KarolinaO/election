@@ -10,5 +10,10 @@ has_one :canceled
       ['Poprawny'],
       ['Anulowany']
     ]
+
+    def getVotesByConstituencyId(constituency_id)
+      @votes = Votes.where(constituencyID = constituencyID)
+
+    end
   end
 end
