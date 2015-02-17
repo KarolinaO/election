@@ -39,4 +39,24 @@
 	 		<%= f.submit 'Utwórz', :class => 'btn btn-ali' %>
 		</div>
   </div>
+
+    <%= f.fields_for :votes do |v| %>
+        <div class="field">
+          <%= v.label :quantity %><br>
+          <%= v.text_field :quantity %>
+        </div>
+
+        <div class="field">
+          <%= f.hidden_field :vote_id, :value => @constituency.id %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :good_votes, :value => "good" %>
+          <%= f.hidden_field :bad_votes, :value => "bad" %>
+
+        </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
