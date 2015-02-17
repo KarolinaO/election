@@ -13,6 +13,7 @@
     <% @commieties.each do |c| %>
         <%= f.fields_for :votes do |v| %>
             <div class="field">
+              <h1><%= c.name %></h1>
               <%= v.hidden_field :committee_id, :value => c.id %>
               <%= v.hidden_field :constituency_id, :value => @id %>
               <%= v.label :quantity %><br>
