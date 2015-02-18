@@ -1,6 +1,5 @@
 class Committee < ActiveRecord::Base
   has_many :votes
-  belongs_to :user
   has_and_belongs_to_many :provinces
 
   validates :name, length: {minimum: 5}

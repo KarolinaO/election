@@ -20,9 +20,21 @@ class ApplicationController < ActionController::Base
     return @current_client if defined?(@current_user)
     @current_client = User.find(@current_user.id).client_id
   end
+
+
   def authenticate
     if !current_user
       redirect_to new_user_session_path
+    end
+  end
+
+  before_filter :require_login
+
+  private
+
+  def require_login
+    unless current_user
+      redirect_to login_url
     end
   end
 end

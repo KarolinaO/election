@@ -63,6 +63,12 @@ class ConstituenciesController < ApplicationController
     end
   end
 
+  def my_function
+    @constituency = Constituency.find(params[:id])
+    Votes.getVotesByConstituencyId
+    votes.sum(:quantity)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_constituency

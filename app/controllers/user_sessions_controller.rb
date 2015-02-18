@@ -3,7 +3,7 @@ class UserSessionsController < ApplicationController
   def new
     @user_session = UserSession.new
   end
-
+  skip_before_filter :require_login
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
