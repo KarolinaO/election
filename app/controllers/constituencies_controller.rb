@@ -63,12 +63,20 @@ class ConstituenciesController < ApplicationController
     end
   end
 
-  def my_function
-    @constituency = Constituency.find(params[:id])
-    Votes.getVotesByConstituencyId
-    votes.sum(:quantity)
+  def count_all_votes(dupa)
+    #@constituency = Constituency.find(id)
+    @votes = Vote.where(constituency_id = dupa)
+    quantity = 0
+    if !@votes.nil?
+      quantity = @votes.sum("quantity")
+    end 
+    #@votes.each do |vote|
+      #quantity = quantity + vote.quantity
+      #end
+    #votes.sum(:quantity)
   end
-
+  helper_method :count_all_votes
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_constituency

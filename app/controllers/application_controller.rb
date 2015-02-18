@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  before_filter :require_login
+  #before_filter :require_login
 
   private
 
