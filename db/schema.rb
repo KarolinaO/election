@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20150207151543) do
 
   create_table "committees", force: true do |t|
     t.string   "name"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"
@@ -63,7 +62,6 @@ ActiveRecord::Schema.define(version: 20150207151543) do
   end
 
   create_table "constituencies", force: true do |t|
-    t.integer  "number"
     t.string   "name"
     t.integer  "voters"
     t.integer  "good_votes"

@@ -28,13 +28,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  before_filter :require_login
+  #before_filter :require_login
 
-  private
+ # private
 
-  def require_login
-    unless current_user
-      redirect_to login_url
-    end
-  end
+ # def require_login
+    #unless current_user
+    #  redirect_to login_url
+   # end
+ # end
 end
