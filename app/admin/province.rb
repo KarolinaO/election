@@ -9,7 +9,7 @@ ActiveAdmin.register Province do
 
       f.input :name
       f.input :seats
-   
+
     end
     f.actions
   end
