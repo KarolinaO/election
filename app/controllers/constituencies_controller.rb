@@ -63,9 +63,9 @@ class ConstituenciesController < ApplicationController
     end
   end
 
-  def count_all_votes(dupa)
+  def count_good_votes(d)
     #@constituency = Constituency.find(id)
-    @votes = Vote.where(constituency_id = dupa)
+    @votes = Vote.where(constituency_id: d)
     quantity = 0
     if !@votes.nil?
       quantity = @votes.sum("quantity")
@@ -75,7 +75,22 @@ class ConstituenciesController < ApplicationController
       #end
     #votes.sum(:quantity)
   end
+  helper_method :count_good_votes
+  
+  def count_bad_votes(d)
+    @constituency = Constituency.find_by_id(d)
+    bad_votes = @constituency.canceled_votes_1 + @constituency.canceled_votes_2 + @constituency.canceled_votes_3
+  end
+  helper_method :count_bad_votes
+  
+  def count_all_votes(d)
+    good_votes = count_good_votes(d)
+    bad_votes = count_bad_votes(d)
+    all_votes = good_votes + bad_votes
+  end
   helper_method :count_all_votes
+  
+  
   
   private
     # Use callbacks to share common setup or constraints between actions.

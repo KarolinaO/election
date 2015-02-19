@@ -5,7 +5,7 @@ class Constituency < ActiveRecord::Base
   has_one :user
   before_validation :default_values
   accepts_nested_attributes_for :votes
-  
+  #attr_accessible :canceled_votes_1, :canceled_votes_2, :canceled_votes_3
 
   validates :voters, numericality:  {only_integer:true}
   validates :canceled_votes_1, numericality:  {only_integer:true}

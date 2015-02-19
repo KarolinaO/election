@@ -2,7 +2,11 @@
 <h1>Constituency <%= @constituency.name %></h1>
 <div class="row">
 	<div class="col-md-3">Ilość kart: <%= @constituency.voters  %></div> 
-	<div class="col-md-3">Ilość oddanych głosów: <%= count_all_votes(@constituency.id) %></div>
+	<div class="col-md-3">
+		<p>Ilość ważnych głosów: <%= count_good_votes(@constituency.id) %></p>
+		<p>Ilość nieważnych głosów: <%= count_bad_votes(@constituency.id) %></p>
+		<p>Ilość wszystkich głosów: <%= count_all_votes(@constituency.id) %></p>
+	</div>
 	<div class="col-md-3">ID: <%= @constituency.id %></div>
 </div>
 <%= link_to 'Edit', edit_constituency_path(@constituency) %> |
