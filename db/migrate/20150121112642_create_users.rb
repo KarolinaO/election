@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration
     t.boolean   :admin, :null => false, :default => 0
     t.integer   :type
     t.string    :city
-    t.references :committee
+   # t.references :committee
     t.references :constituency
 
     t.timestamps
