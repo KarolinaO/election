@@ -9,7 +9,7 @@ has_one :canceled
 after_save :remove_bad_votes
 
     def getVotesByConstituencyId(constituency_id)
-      Votes.where("constituency_id=?", constituency_id)
+      Vote.where("constituency_id=?", constituency_id)
 
     end
     
@@ -57,5 +57,7 @@ after_save :remove_bad_votes
       bad_votes = count_bad_votes(d)
       all_votes = good_votes + bad_votes
     end
+
+
 
 end

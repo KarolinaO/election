@@ -13,7 +13,7 @@ class Committee < ActiveRecord::Base
 
 
   def getCommitteesByProvinceId(province_id)
-    Committee.joins(:provinces).where(province_id)
+    Committee.joins(:provinces).where('province_id = ?',  province_id)
   end
 
 

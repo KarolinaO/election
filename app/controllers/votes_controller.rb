@@ -14,6 +14,7 @@ class VotesController < ApplicationController
   def new
     @vote = Vote.new
     @id = current_user.constituency_id
+    @flag = @vote.getVotesByConstituencyId(@id)
     @constituency = Constituency.find(@id)
     @constituency.votes.build
     @province_id = @constituency.province_id
