@@ -1,7 +1,7 @@
 <h1>New vote</h1>
 
-<% if @flag.nil? %>
-    <%= render form %>
+<% if !@flag.nil? %>
+    <%= render 'form' %>
 <% else %>
     <h1> Już oddałeś głos</h1> <% end %>
 
