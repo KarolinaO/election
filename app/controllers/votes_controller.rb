@@ -3,7 +3,11 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = Vote.where(constituency_id: current_user.constituency_id)
+    if current_user.role == 0
+      @votes = Vote.where(constituency_id: current_user.constituency_id)
+    else 
+      @votes = Vote.order(:constituency_id).all
+    end
   end
 
   # GET /votes/new
@@ -26,6 +30,12 @@ class VotesController < ApplicationController
     @committee.name
   end
   helper_method :findCommitteeById
+  
+  def findConstituencyById(id)
+    @constituency = Constituency.find(id)
+    @constituency.name
+  end
+  helper_method :findConstituencyById
 
   private
     # Use callbacks to share common setup or constraints between actions.
