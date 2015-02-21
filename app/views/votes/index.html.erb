@@ -1,23 +1,12 @@
-<h1>Listing votes</h1>
+<h1>Patrzcie, jak ludzie głosujo</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @votes.each do |vote| %>
-      <tr>
-        <td><%= link_to 'Show', vote %></td>
-        <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
-        <td><%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <div class="col-md-1">ID: <%= vote.id %></div>
+				<div class="col-md-4">Nazwa komitetu: <%= findCommitteeById(vote.committee_id) %></div>
+        <div class="col-md-3">Ilość głosów: <%= vote.quantity %></div>
+        <div class="col-md-4">ID komitetu: <%= vote.committee_id %></div>
+			</div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Vote', new_vote_path %>
