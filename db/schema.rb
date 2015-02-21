@@ -100,9 +100,8 @@ ActiveRecord::Schema.define(version: 20150207151543) do
     t.string   "password_salt",                     null: false
     t.string   "persistence_token",                 null: false
     t.boolean  "admin",             default: false, null: false
-    t.integer  "type"
+    t.integer  "role",              default: 0
     t.string   "city"
-    t.integer  "committee_id"
     t.integer  "constituency_id"
     t.datetime "created_at"
     t.datetime "updated_at"
