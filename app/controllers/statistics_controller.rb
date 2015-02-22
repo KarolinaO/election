@@ -17,7 +17,7 @@ class StatisticsController < InheritedResources::Base
           @total_sum = @total_sum + constituency.votes.sum("quantity")
         end
       
-        @all_voters = province.constituencies.sum("voters")
+        
       end
     end
   end
@@ -30,6 +30,22 @@ class StatisticsController < InheritedResources::Base
     end 
   end
   helper_method :count_votes_by_constituency_id
+  
+  def count_voters_by_province_id(d)
+    @province = Province.find(d)
+    all_voters = @province.constituencies.sum("voters")
+  end
+  helper_method :count_voters_by_province_id
+  
+  def count_votes_by_province_id(d)
+    @province = Province.find(d)
+    total_sum = 0
+    @province.constituencies.each do |constituency|
+      total_sum = total_sum + constituency.votes.sum("quantity")
+    end
+    total_sum
+  end
+  helper_method :count_votes_by_province_id
   
   def count_all_votes(committee_id, province_id)
     @constituencies = Constituency.where("province_id = ?", province_id)

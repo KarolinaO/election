@@ -15,16 +15,16 @@
 				<tbody>
 					<tr>
 						<td>Ilość uprawnionych do głosowania</td>
-						<td><%= @all_voters %></td>
+						<td><%= count_voters_by_province_id(province.id) %></td>
 					</tr>
 					<tr>
 						<td>Ilość oddanych głosów</td>
-						<td><%= @total_sum %></td>
+						<td><%= count_votes_by_province_id(province.id) %></td>
 					</tr>
 					<% province.committees.each do |committee| %>
 					<tr>
 						<td><%= committee.name %></td>
-						<td><%= count_percentage(count_all_votes(committee.id, province.id), @total_sum)%>% (<%= count_all_votes(committee.id, province.id) %> głosów)</td>
+						<td><%= count_percentage(count_all_votes(committee.id, province.id), count_votes_by_province_id(province.id))%>% (<%= count_all_votes(committee.id, province.id) %> głosów)</td>
 					</tr>
 					<% end %>
 					<tr class="info">
