@@ -3,10 +3,13 @@
 		<p><i class="fa fa-chevron-left"></i> <%= link_to 'Back', users_path %></p>
 		<i class="fa fa-user-plus big-icon"></i>
 	</div>
+  <% if current_user.admin == 1 %>
 	<div class="col-md-7">
 		<%= render 'form' %>
 	</div>
 	<div class="col-md-3">&nbsp;</div>
+
 </div>
-
-
+<%else%>
+<h1>Nie masz uprawnień</h1>
+<%end%>

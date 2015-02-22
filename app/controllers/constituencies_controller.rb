@@ -14,18 +14,23 @@ class ConstituenciesController < ApplicationController
 
   # GET /constituencies/new
   def new
+    if(current_user.admin == 1)
     @constituency = Constituency.new
     @constituency.votes.build
+  end
   end
 
   # GET /constituencies/1/edit
   def edit
+    if(current_user.admin == 1)
     @constituency.votes.build
+  end
   end
 
   # POST /constituencies
   # POST /constituencies.json
   def create
+    if(current_user.admin == 1)
     @constituency = Constituency.new(constituency_params)
 
     respond_to do |format|
@@ -36,6 +41,7 @@ class ConstituenciesController < ApplicationController
         format.html { render :new }
         format.json { render json: @constituency.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 

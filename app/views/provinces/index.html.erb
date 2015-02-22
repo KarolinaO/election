@@ -6,9 +6,9 @@
         <div class="col-md-1"><%=province.id %></div>
         <div class="col-md-8"><%=province.name %></div>
         <div class="col-md-3">
-					<div class="icon-set"><i class="fa fa-eye"></i><%= link_to 'Show', province %></div> 
+					<div class="icon-set"><i class="fa fa-eye"></i><%= link_to 'Show', province %></div>
         	<div class="icon-set"><i class="fa fa-pencil-square-o"></i><%= link_to 'Edit', edit_province_path(province) %></div>
-       		<div class="icon-set"><i class="fa fa-times"></i><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
 				</div>
 			</div>
     <% end %>

@@ -25,6 +25,8 @@ ActiveAdmin.register User do
       f.input :password
       f.label :constituency
       f.collection_select :constituency_id, Constituency.all.order('name ASC'), :id, :name, {}
+      f.label :role
+      f.select :role, ['0','1']
     end
     f.actions
   end

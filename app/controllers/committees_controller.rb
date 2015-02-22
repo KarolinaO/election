@@ -1,8 +1,10 @@
 class CommitteesController < ApplicationController
   before_action :set_committee, only: [:show, :edit, :update, :destroy]
 
+
   # GET /committee
   # GET /committee.json
+
   def index
     @committees = Committee.all
   end
@@ -11,11 +13,14 @@ class CommitteesController < ApplicationController
   # GET /committees/1.json
   def show
   end
+  else
 
   # GET /committees/new
   def new
+    if(current_user.admin == 1)
     @committee = Committee.new
-  end
+    end
+    end
 
   # GET /committees/1/edit
   def edit
@@ -40,6 +45,7 @@ class CommitteesController < ApplicationController
   # PATCH/PUT /committee/1
   # PATCH/PUT /committee/1.json
   def update
+    if(current_user.admin == 1)
     respond_to do |format|
       if @committee.update(committee_params)
         format.html { redirect_to @committee, notice: 'Committee was successfully updated.' }
@@ -49,17 +55,20 @@ class CommitteesController < ApplicationController
         format.json { render json: @committee.errors, status: :unprocessable_entity }
       end
     end
-  end
+    end
+    end
 
   # DELETE /committee/1
   # DELETE /committee/1.json
   def destroy
+    if(current_user.admin == 1)
     @committee.destroy
     respond_to do |format|
       format.html { redirect_to committees_url, notice: 'Committee was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+    end
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.

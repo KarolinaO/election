@@ -1,5 +1,7 @@
 <div class="row">
+
 <h1>Editing committee</h1>
+  <% if current_user.admin == 1 %>
 	<div class="col-md-2">
 		<p><i class="fa fa-chevron-left"></i> <%= link_to 'Back', committees_path %> | <%= link_to 'Show', @committee %></p>
 		<i class="fa fa-pencil-square-o big-icon"></i>
@@ -8,6 +10,9 @@
 		<%= render 'form' %>
 	</div>
 	<div class="col-md-3">&nbsp;</div>
+<%else%>
+  <h1>Nie masz uprawnień</h1>
 
 
 </div>
+  <%end%>

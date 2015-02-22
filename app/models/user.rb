@@ -14,6 +14,5 @@ validates :name, length: { minimum: 2}
 validates :surname, length: { minimum: 2 }
 validates :login, length: { minimum: 2 }, uniqueness: true
 
-#validates :type, numeralicity: {only_integer: true}
 validates :city, length: { minimum: 3}
 end

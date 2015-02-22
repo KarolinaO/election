@@ -1,4 +1,4 @@
-<h1>Patrzcie, jak ludzie głosujo</h1>
+<h1>Wyniki głosowań</h1>
 
 	<% if current_user.role == 0%>
     <% @votes.each do |vote| %>
@@ -18,8 +18,8 @@
 				<div class="col-md-2">Nazwa komitetu: <%= findCommitteeById(vote.committee_id) %></div>
         <div class="col-md-2">Ilość głosów: <%= vote.quantity %></div>
         <div class="col-md-2">ID komitetu: <%= vote.committee_id %></div>
-				<div class="col-md-2">Nazwa województwa: <%= findConstituencyById(vote.constituency_id) %></div>
-				<div class="col-md-3">ID Województwa: <%= vote.constituency_id %></div>
+				<div class="col-md-2">Nazwa okręgu: <%= findConstituencyById(vote.constituency_id) %></div>
+				<div class="col-md-3">ID okręgu: <%= vote.constituency_id %></div>
 			</div>
     <% end %>
 	<% end %>

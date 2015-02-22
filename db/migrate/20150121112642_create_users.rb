@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
     t.string    :password_salt,       :null => false
     t.string    :persistence_token,   :null => false
     t.boolean   :admin, :null => false, :default => 0
-    t.integer   :role, :default => 0
+    t.integer   :role, :null => false, :default => 0
     t.string    :city
    # t.references :committee
     t.references :constituency

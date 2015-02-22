@@ -12,6 +12,7 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
+
     @vote = Vote.new
     @id = current_user.constituency_id
     @flag = @vote.getVotesByConstituencyId(@id)

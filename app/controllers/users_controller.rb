@@ -9,8 +9,15 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
+
+
   def show
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to :users, :notice => "Access denied."
+    end
   end
+
 
   # GET /users/new
   def new
@@ -19,6 +26,10 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to :users, :alert => "Access denied."
+  end
   end
 
   # POST /users
@@ -54,7 +65,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+
     @user.destroy
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
@@ -69,6 +82,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :surname, :login, :password, :city, :type, :admin)
+      params.require(:user).permit(:name, :surname, :login, :password, :role, :city, :admin)
     end
 end

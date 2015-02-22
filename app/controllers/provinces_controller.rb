@@ -14,16 +14,19 @@ class ProvincesController < ApplicationController
 
   # GET /provinces/new
   def new
+    if(current_user.admin == 1)
     @province = Province.new
   end
 
   # GET /provinces/1/edit
   def edit
   end
+  end
 
   # POST /provinces
   # POST /provinces.json
   def create
+    if(current_user.admin == 1)
     @province = Province.new(province_params)
 
     respond_to do |format|
@@ -34,6 +37,7 @@ class ProvincesController < ApplicationController
         format.html { render :new }
         format.json { render json: @province.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 
@@ -54,11 +58,13 @@ class ProvincesController < ApplicationController
   # DELETE /provinces/1
   # DELETE /provinces/1.json
   def destroy
+    if(current_user.admin == 1)
     @province.destroy
     respond_to do |format|
       format.html { redirect_to provinces_url, notice: 'Province was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
   end
 
   private

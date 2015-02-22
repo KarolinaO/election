@@ -1,5 +1,6 @@
 <div class="row">
 <h1>New constituency</h1>
+  <% if current_user.admin == 1 %>
 	<div class="col-md-2">
 		<p><i class="fa fa-chevron-left"></i> <%= link_to 'Back', constituencies_path %></p>
 		<i class="fa fa-plus big-icon"></i>
@@ -9,6 +10,8 @@
 	</div>
 	<div class="col-md-3">&nbsp;</div>
 
+  <%else%>
+	  <h1>Nie masz uprawnień</h1>
 
-</div>
-
+	  </div>
+  <%end%>

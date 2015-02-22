@@ -34,8 +34,8 @@
 					  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MENU <span class="caret"></span></a>
 					    	<ul class="dropdown-menu" role="menu">
 					      	<li><a href="votes/new">Oddaj głos</a></li>
-					        <li><a href="#">tutaj</a></li>
-					        <li><a href="#">cos</a></li>
+					        <li><a href="#">A tuaj kolejny</a></li>
+					        <li><a href="#">I następny</a></li>
 					        <li class="divider"></li>
 					        <li><a href="#">To nie jest</a></li>
 					        <li class="divider"></li>
@@ -46,10 +46,8 @@
 				      <li><i class="fa fa-circle-thin"></i><%= link_to "Okręgi", constituencies_path %></li>
 							<li><i class="fa fa-users"></i><%= link_to "Komitety", committees_path %></li>
 							<li><i class="fa fa-check-square-o"></i><%= link_to "Głosy", votes_path %></li>
-							<% if current_user %>
-								<%if current_user.role == 1 %>
-									<li><i class="fa fa-bar-chart"></i><%= link_to "Statystyki", statistics_path %></li>
-								<% end %>
+							<% if current_user.role == 1 %>
+								<li><i class="fa fa-bar-chart"></i><%= link_to "Statystyki", statistics_path %></li>
 							<% end %>
 				</ul>
 				
