@@ -6,8 +6,9 @@ class StatisticsController < InheritedResources::Base
       @provinces = Province.all
       @provinces.each do |province|
       
-        @total_sum = 0
+        
         province.constituencies.each do |constituency|
+          @total_sum = 0
           #@sum = 0
           #constituency.votes.each do |vote|
             #@sum = @sum + vote.quantity
