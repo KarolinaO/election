@@ -1,26 +1,66 @@
-<h1>Listing statistics</h1>
 
 
 
-<% @provinces.each do |province| %>
-    <div class="row">
-      <div class="col-md-1"><%=province.id %></div>
-      <div class="col-md-8"><%=province.name %></div>
-      <div class="col-md-3">
-      </div>
-    </div>
-    <% province.constituencies.each do |c| %>
-        <%= c.name %>
-        <% c.votes.each do |v| %>
-            <%= v.quantity %>
-            <%= v.committee.name %>
-        <% end %>
-    <% end%>
-<%end%>
+<% if current_user.role == 1 %>
+	<h1>Statystyki</h1>
+	<% @provinces.each do |province| %>
+		<div class="table-responsive">
+		  <table class="table table-striped">
+				<thead>
+					<tr class="active">
+		    		<td><%=province.id %></td>
+		    		<td><%=province.name %></td>
+					</tr>
+		    </thead>
+				<tbody>
+					<tr>
+						<td>Ilość oddanych głosów</td>
+						<td><%= @total_sum %></td>
+					</tr>
+					<tr>
+						<td>Ilość uprawnionych do głosowania</td>
+						<td><%= @all_voters %></td>
+					</tr>
+					<% province.committees.each do |committee| %>
+					<tr>
+						<td><%= committee.name %></td>
+						<td><%= count_percentage(count_all_votes(committee.id, province.id), province.id)%>% (<%= count_all_votes(committee.id, province.id) %> głosów)</td>
+					</tr>
+					<% end %>
+				  <% province.constituencies.each do |c| %>
+						<tr>
+							<td colspan="2">
+								<table class="table  table-striped">
+									<thead>
+										<tr class="info">
+						      		<td colspan="2"><%= c.name %></td>
+										</tr>
+									</thead>
+									<tbody>
+										<% c.votes.each do |v| %>
+											<tr>
+												<td>
+													<%= v.committee.name %>
+												</td>
+												<td>
+						            	<%= v.quantity %>
+												</td>
+											</tr>
+						        <% end %>
+										<tr class="active">
+											<td>Suma</td>
+											<td><%= count_votes_by_constituency_id(c.id) %></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						<tr>
+				  <% end%>
+				</tbody>
+			</table>
+		</div>
+	<%end%>
+<% else %>
+	<h1>Nie masz uprawnień!</h1>
+<% end %>
 
-
-
-
-<br>
-
-<%= link_to 'New Statistic', new_statistic_path %>
