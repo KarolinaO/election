@@ -8,11 +8,12 @@ class StatisticsController < InheritedResources::Base
       
         @total_sum = 0
         province.constituencies.each do |constituency|
-          @sum = 0
-          constituency.votes.each do |vote|
-            @sum = @sum + vote.quantity
-          end
-          @total_sum = @total_sum + @sum
+          #@sum = 0
+          #constituency.votes.each do |vote|
+            #@sum = @sum + vote.quantity
+            #end
+          #@total_sum = @total_sum + @sum
+          @total_sum = @total_sum + constituency.votes.sum("quantity")
         end
       
         @all_voters = province.constituencies.sum("voters")
