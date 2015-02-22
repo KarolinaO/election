@@ -61,9 +61,14 @@ class StatisticsController < InheritedResources::Base
   helper_method :count_all_votes
   
   def count_percentage(votes, all_voters)
-    percents = votes.to_f/all_voters.to_f
-    percents = percents*100
-    percents.round(2)
+    if(all_voters != 0 and votes != 0)
+      percents = votes.to_f/all_voters.to_f
+      percents = percents*100
+      percents = percents.round(2)
+    else
+      percents = "WIELKIE_NIC"
+    end
+    percents
   end
   helper_method :count_percentage
   
