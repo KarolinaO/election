@@ -42,11 +42,7 @@ class StatisticsController < InheritedResources::Base
   end
   helper_method :count_all_votes
   
-  def count_percentage(votes, province_id)
-    @constituencies = Constituency.where("province_id = ?", province_id)
-    if !@constituencies.nil?
-      all_voters = @constituencies.sum("voters")
-    end 
+  def count_percentage(votes, all_voters)
     percents = votes.to_f/all_voters.to_f
     percents = percents*100
     percents.round(2)
