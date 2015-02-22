@@ -1,27 +1,23 @@
 <h1>Listing statistics</h1>
 
 
-  <% @provinces.each do |province| %>
-      <div class="row">
-        <div class="col-md-1"><%=province.id %></div>
-        <div class="col-md-8"><%=province.name %></div>
-        <div class="col-md-3">
-          </div>
-          </div>
-      <%end%>
 
-
-
-<% @constituencies.each do |constituency| %>
+<% @provinces.each do |province| %>
     <div class="row">
-      <div class="col-md-1">ID: <%=constituency.id %></div>
-
-      <div class="col-md-6">Nazwa: <%=constituency.name %></div>
+      <div class="col-md-1"><%=province.id %></div>
+      <div class="col-md-8"><%=province.name %></div>
       <div class="col-md-3">
+      </div>
+    </div>
+    <% province.constituencies.each do |c| %>
+        <%= c.name %>
+        <% c.votes.each do |v| %>
+            <%= v.quantity %>
+            <%= v.committee.name %>
+        <% end %>
+    <% end%>
+<%end%>
 
-    </div>
-    </div>
-<% end %>
 
 
 
