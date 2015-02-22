@@ -10,7 +10,7 @@ class StatisticsController < InheritedResources::Base
  @votes = Vote.where(constituency.id, constituency.id)
 
     def statistic_params
-      params.require(:statistic).permit()
+      params.require(:statistic).permit(:province_ids => [], :constituency_ids => [], )
     end
 end
 
