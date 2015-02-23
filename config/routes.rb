@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :constituencies
 
   resource :user_session, :only => [:new, :create, :destroy]
-  root :to => "users#index"
+  root :to => "provinces#index"
   get 'login' => 'user_sessions#new', :as => :login
   get 'logout' => 'user_sessions#destroy', :as => :logout
   get 'committees' => 'committees#index'

@@ -1,4 +1,4 @@
-<h1>Listing committees</h1>
+<h1>Komitety</h1>
     <% @committees.each do |committee| %>
       <div class="row">
         <div class="col-md-1"><h3><%=committee.id %></h3></div>
@@ -11,5 +11,5 @@
 			</div>
     <% end %>
 <br />
-<%= link_to 'New Committee', new_committee_path, :class => 'btn btn-ali' %>
+<%= link_to 'Nowy komitet', new_committee_path, :class => 'btn btn-ali' %>
 

@@ -12,7 +12,7 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
-
+    if(current_user.role == 0)
     @vote = Vote.new
     @id = current_user.constituency_id
     @flag = @vote.getVotesByConstituencyId(@id)
@@ -23,6 +23,7 @@ class VotesController < ApplicationController
     @commieties = @commiettee.getCommitteesByProvinceId(@province_id)
   # GET /votes/1/edit
     end
+  end
   def edit
     @constituency.votes.build
   end

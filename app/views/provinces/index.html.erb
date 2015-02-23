@@ -1,4 +1,4 @@
-<h1>Listing provinces</h1>
+<h1>Lista województw</h1>
 
 
     <% @provinces.each do |province| %>
@@ -6,8 +6,8 @@
         <div class="col-md-1"><%=province.id %></div>
         <div class="col-md-8"><%=province.name %></div>
         <div class="col-md-3">
-					<div class="icon-set"><i class="fa fa-eye"></i><%= link_to 'Show', province %></div>
-        	<div class="icon-set"><i class="fa fa-pencil-square-o"></i><%= link_to 'Edit', edit_province_path(province) %></div>
+					<div class="icon-set"><i class="fa fa-eye"></i><%= link_to 'Podgląd', province %></div>
+        	<div class="icon-set"><i class="fa fa-pencil-square-o"></i><%= link_to 'Edycja', edit_province_path(province) %></div>
 
 				</div>
 			</div>
@@ -15,4 +15,4 @@
 
 <br>
 
-<%= link_to 'New Province', new_province_path, :class => 'btn btn-ali' %>
+<%= link_to 'Nowe województwo', new_province_path, :class => 'btn btn-ali' %>
