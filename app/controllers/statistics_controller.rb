@@ -20,6 +20,8 @@ class StatisticsController < InheritedResources::Base
 
 
       end
+
+
     end
   end
     

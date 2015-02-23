@@ -3,7 +3,9 @@
 
 <% if current_user.role == 1 %>
 	<h1>Statystyki</h1>
-
+	<p>
+	  <button class="btn btn-primary drukuj" onClick="window.print()">Drukuj raport</button>
+	</p>
 	<% @provinces.each do |province| %>
 		<div class="table-responsive">
 		  <table class="table table-striped">

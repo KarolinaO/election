@@ -123,3 +123,18 @@ table{
 		color:#314756;
 		background:white;
 }
+
+@media print{
+  table{
+	width:100%;
+	border:1px solid #333;
+  }
+
+  .navbar, footer, .drukuj{
+	display:none;
+  }
+
+  thead{
+	background:lightcoral!important;
+  }
+}
