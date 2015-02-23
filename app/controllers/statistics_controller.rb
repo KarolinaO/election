@@ -2,11 +2,12 @@ class StatisticsController < InheritedResources::Base
 
 
   def index
+
     if(current_user.role == 1)
       @provinces = Province.all
       @provinces.each do |province|
-      
-        
+
+
         province.constituencies.each do |constituency|
           @total_sum = 0
           #@sum = 0
@@ -16,8 +17,8 @@ class StatisticsController < InheritedResources::Base
           #@total_sum = @total_sum + @sum
           @total_sum = @total_sum + constituency.votes.sum("quantity")
         end
-      
-        
+
+
       end
     end
   end
@@ -71,6 +72,8 @@ class StatisticsController < InheritedResources::Base
     percents
   end
   helper_method :count_percentage
+
+
   
   def statistic_params
     params.require(:statistic).permit(:province_ids => [], :constituency_ids => [], )
